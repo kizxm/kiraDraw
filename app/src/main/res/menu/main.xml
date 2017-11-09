@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/normal"
+        android:visible="true"
+        android:title="Normal" />
+
+    <item
+        android:id="@+id/emboss"
+        android:visible="true"
+        android:title="Emboss" />
+
+    <item
+        android:id="@+id/blur"
+        android:visible="true"
+        android:title="Blur" />
+
+    <item
+        android:id="@+id/clear"
+        android:visible="true"
+        android:title="Clear" />
+
+</menu>
