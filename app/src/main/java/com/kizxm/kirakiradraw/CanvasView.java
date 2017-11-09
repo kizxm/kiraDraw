@@ -40,12 +40,14 @@ public class CanvasView extends View {
     private Canvas mCanvas;
     private Paint mBitmapPaint = new Paint(Paint.DITHER_FLAG);
 
+
     public CanvasView(Context context) {
         this(context, null);
     }
 
     public CanvasView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setDither(true);
