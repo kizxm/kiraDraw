@@ -19,10 +19,11 @@ import com.kizxm.kirakiradraw.models.Brush;
 
 import java.util.ArrayList;
 
+
 public class CanvasView extends View {
 
     public static int BRUSH_SIZE = 15;
-    public static final int DEFAULT_COLOR = Color.BLUE;
+    public static final int DEFAULT_COLOR = Color.BLACK;
     public static final int DEFAULT_BG_COLOR = Color.WHITE;
     private static final float TOUCH_TOLERANCE = 4;
     private float mX, mY;
@@ -150,16 +151,16 @@ public class CanvasView extends View {
         float x = event.getX();
         float y = event.getY();
 
-        switch(event.getAction()) {
-            case MotionEvent.ACTION_DOWN :
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
                 touchStart(x, y);
                 invalidate();
                 break;
-            case MotionEvent.ACTION_MOVE :
+            case MotionEvent.ACTION_MOVE:
                 touchMove(x, y);
                 invalidate();
                 break;
-            case MotionEvent.ACTION_UP :
+            case MotionEvent.ACTION_UP:
                 touchUp();
                 invalidate();
                 break;
@@ -167,4 +168,5 @@ public class CanvasView extends View {
 
         return true;
     }
+
 }
