@@ -1,4 +1,4 @@
-package com.kizxm.kirakiradraw;
+package com.kizxm.kirakiradraw.screenshot_logic;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -20,7 +20,6 @@ public class ScreenshotUtils {
         return bitmap;
     }
 
-    /*  Create Directory where screenshot will save for sharing screenshot  */
     public static File getMainDirectoryName(Context context) {
         File mainDir = new File(
                 context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "Draw");
@@ -32,7 +31,6 @@ public class ScreenshotUtils {
         return mainDir;
     }
 
-    /*  Store taken screenshot into above created path  */
     public static File store(Bitmap bm, String fileName, File saveFilePath) {
         File dir = new File(saveFilePath.getAbsolutePath());
         if (!dir.exists())

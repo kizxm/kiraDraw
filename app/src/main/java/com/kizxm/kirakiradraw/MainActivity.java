@@ -12,10 +12,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.kizxm.kirakiradraw.screenshot_logic.ScreenshotType;
+import com.kizxm.kirakiradraw.screenshot_logic.ScreenshotUtils;
 
 import java.io.File;
 
@@ -73,10 +75,6 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
 
         rootContent = (RelativeLayout) findViewById(R.id.activity_main);
-
-//        imageView = (ImageView) findViewById(R.id.image_view);
-//
-//        hiddenText = (TextView) findViewById(R.id.hidden_text);
     }
 
     private void takeScreenshot(ScreenshotType screenshotType) {
@@ -88,25 +86,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (b != null) {
-//            showScreenShotImage(b);
-
-            File saveFile = ScreenshotUtils.getMainDirectoryName(this);//get the path to save screenshot
-            File file = ScreenshotUtils.store(b, "screenshot" + screenshotType + ".jpg", saveFile);//save the screenshot to selected path
+            File saveFile = ScreenshotUtils.getMainDirectoryName(this);
+            File file = ScreenshotUtils.store(b, "screenshot" + screenshotType + ".jpg", saveFile);
             shareScreenshot(file);
         } else
             Toast.makeText(this, "Saving Failed", Toast.LENGTH_SHORT).show();
 
     }
-//    private void showScreenShotImage(Bitmap b) {
-//        imageView.setImageBitmap(b);
-//    }
+
 private void shareScreenshot(File file) {
-    Uri uri = Uri.fromFile(file);//Convert file path into Uri for sharing
+    Uri uri = Uri.fromFile(file);
     Intent intent = new Intent();
     intent.setAction(Intent.ACTION_SEND);
     intent.setType("image/*");
     intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "");
-    intent.putExtra(Intent.EXTRA_STREAM, uri);//pass uri here
+    intent.putExtra(Intent.EXTRA_STREAM, uri);
 }
 
 }
