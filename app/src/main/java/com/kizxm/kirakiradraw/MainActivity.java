@@ -1,10 +1,12 @@
 package com.kizxm.kirakiradraw;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -21,6 +23,8 @@ import com.kizxm.kirakiradraw.screenshot_logic.ScreenshotUtils;
 
 import java.io.File;
 
+import static com.kizxm.kirakiradraw.R.mipmap.ic_launcher;
+
 public class MainActivity extends AppCompatActivity {
     private CanvasView canvasView;
 
@@ -34,6 +38,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         canvasView = (CanvasView) findViewById(R.id.canvasView);
+
+        final ProgressDialog progress = new ProgressDialog(this);
+        progress.setTitle("  ~~starting kiraDraw~~");
+        progress.setIcon(ic_launcher);
+        progress.show();
+
+        Runnable progressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                progress.cancel();
+            }
+        };
+
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 3500);
+
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         canvasView.init(metrics);
