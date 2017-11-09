@@ -4,6 +4,7 @@ package com.kizxm.kirakiradraw;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 3500);
+        pdCanceller.postDelayed(progressRunnable, 3000);
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -83,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.clear:
                 canvasView.clear();
+                return true;
+
+            case R.id.red:
+                canvasView.red();
                 return true;
 
             case R.id.save:

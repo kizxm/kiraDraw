@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class CanvasView extends View {
 
     public static int BRUSH_SIZE = 15;
-    public static final int DEFAULT_COLOR = Color.BLACK;
+    public int DEFAULT_COLOR = Color.GRAY;
     public static final int DEFAULT_BG_COLOR = Color.WHITE;
     private static final float TOUCH_TOLERANCE = 4;
     private float mX, mY;
@@ -39,6 +39,9 @@ public class CanvasView extends View {
     private MaskFilter mBlur;
     private Bitmap mBitmap;
     private Canvas mCanvas;
+
+    public static final int COLOR_RED = Color.RED;
+
     private Paint mBitmapPaint = new Paint(Paint.DITHER_FLAG);
 
 
@@ -79,6 +82,15 @@ public class CanvasView extends View {
         emboss = false;
         blur = false;
     }
+
+    public void red() {
+        normal();
+        DEFAULT_COLOR = COLOR_RED;
+        emboss = false;
+        blur = false;
+    }
+
+
 
     public void emboss() {
         emboss = true;
