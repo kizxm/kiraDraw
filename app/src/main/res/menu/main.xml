@@ -22,4 +22,9 @@
         android:visible="true"
         android:title="Clear" />
 
+    <item
+        android:id="@+id/save"
+        android:visible="true"
+        android:title="Save" />
+
 </menu>
